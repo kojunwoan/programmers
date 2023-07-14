@@ -1,3 +1,2 @@
 def solution(citations):
-    citations.sort(reverse=True)
-    return max(map(min, enumerate(citations, start=1)))
+    return max(map(min, enumerate(sorted(citations, reverse=True), start=1)))
