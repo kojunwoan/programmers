@@ -1,9 +1,6 @@
-from collections import defaultdict
+from collections import Counter
+from functools import reduce
 def solution(clothes):
-    col = 1
-    clothes_d = defaultdict(list)
-    for cloth, kind in clothes:
-        clothes_d[kind].append(cloth)
-    for cloth in clothes_d.values():
-        col *= len(cloth) + 1
-    return col - 1
+    count = Counter(c for _, c in clothes)
+    res = reduce(lambda x, y: x * (y + 1), count.values(), 1)
+    return res - 1
