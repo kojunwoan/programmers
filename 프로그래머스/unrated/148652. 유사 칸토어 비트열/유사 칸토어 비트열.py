@@ -1,10 +1,9 @@
 def ch(i):
-    i -= 1
     while i:
-        i, m = divmod(i, 5)
-        if m == 2:
+        if i % 5 == 2:
             return False
+        i //= 5
     return True
     
 def solution(n, l, r):
-    return sum(map(ch, range(l, r + 1)))
+    return sum(map(ch, range(l - 1, r)))
