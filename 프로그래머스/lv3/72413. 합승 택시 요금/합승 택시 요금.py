@@ -1,5 +1,5 @@
 from heapq import heappush, heappop
-def solution1(n, s, a, b, fares):
+def solution(n, s, a, b, fares):
     path = {}
     for n1, n2, c in fares:
         path.setdefault(n1, {n1: 0})[n2] = c
@@ -20,7 +20,7 @@ def solution1(n, s, a, b, fares):
     
     return min(sum(map(lambda d: d[i], costs)) for i in costs[0])
 
-def solution(n, s, a, b, fares):
+def solution1(n, s, a, b, fares):
     d = [ [ 20000001 for _ in range(n) ] for _ in range(n) ]
     for x in range(n):
         d[x][x] = 0
